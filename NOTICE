@@ -1,5 +1,5 @@
 ATLAS Architecture Explorer
-Copyright 2024 Adem Baykal
+Copyright 2026 Adem Baykal
 ATLAS V2.2 public distribution, 2026
 
 This application includes architecture content, metadata, and rendered diagram
@@ -7,7 +7,7 @@ previews derived from the publicly available SAP Architecture Center repository:
 
   https://github.com/SAP/architecture-center
 
-  Copyright 2024 SAP SE or an SAP affiliate company and architecture-center contributors
+  Copyright 2024-2026 SAP SE or an SAP affiliate company and architecture-center contributors
   Licensed under the Apache License, Version 2.0
   Complete license text: LICENSES/Apache-2.0.txt
   Upstream licensing metadata: https://github.com/SAP/architecture-center/blob/main/REUSE.toml
