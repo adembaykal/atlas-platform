@@ -12,7 +12,10 @@
       "opsec": 20,
       "integration": 37
     },
-    "notes": "All documents have at least one domain."
+    "notes": "All documents have at least one domain.",
+    "content_license": "Apache-2.0",
+    "license_text": "./LICENSES/Apache-2.0.txt",
+    "modification_notice": "This ATLAS metadata file is derived from SAP Architecture Center content. Some architecture descriptions have been editorially rewritten or expanded for discovery; component and architecture metadata is generated or transformed. These changes are not official SAP product statements. Refer to the linked original source documents."
   },
   "documents": [
     {
