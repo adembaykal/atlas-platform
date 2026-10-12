@@ -1,25 +1,34 @@
-Architecture Atlas for SAP Architecture Center
+ATLAS Architecture Explorer
 Copyright 2024 Adem Baykal
+ATLAS V2.2 public distribution, 2026
 
-This product includes architecture content, metadata, and diagram source files
-derived from the SAP Architecture Center repository:
+This application includes architecture content, metadata, and rendered diagram
+previews derived from the publicly available SAP Architecture Center repository:
 
   https://github.com/SAP/architecture-center
 
-  Copyright SAP SE and SAP Architecture Center contributors
+  Copyright 2024 SAP SE or an SAP affiliate company and architecture-center contributors
   Licensed under the Apache License, Version 2.0
+  Complete license text: LICENSES/Apache-2.0.txt
+  Upstream licensing metadata: https://github.com/SAP/architecture-center/blob/main/REUSE.toml
 
 The architecture content (reference architecture documents, diagrams, metadata)
-is sourced from the above repository and is used in accordance with the
-Apache License 2.0 terms. The preview images included in this repository are
-rendered from the draw.io source files provided in the upstream repository.
+is sourced from the upstream project and used subject to Apache-2.0 conditions.
+The following published files are generated or transformed from upstream content:
+  atlas-reference-architectures.json
+  data/component-architecture-index.json
+  data/diagram-hotspots.json
+  previews/*.png
+Changes include generating component/hotspot indexes, rendering PNG previews from
+upstream draw.io sources, and editorially rewriting or expanding some architecture
+descriptions in atlas-reference-architectures.json. These derived descriptions are
+not official SAP statements. Refer to the original source documents for details.
+
+ATLAS software is separately accompanied by an MIT LICENSE. The MIT license does
+not replace Apache-2.0 or any applicable rights in third-party content.
 
 This product uses the following open source libraries:
 
   Cytoscape.js — https://cytoscape.org/
   Copyright 2016-2024 The Cytoscape Consortium
-  Licensed under the MIT License
-
-  cytoscape-fcose — https://github.com/iVis-at-Bilkent/cytoscape.js-fcose
-  Copyright 2018 iVis-at-Bilkent
   Licensed under the MIT License
