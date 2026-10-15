@@ -186,6 +186,124 @@ body {
   flex-shrink: 0;
 }
 
+/* ── Source Selector ── */
+.source-selector-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+}
+.source-selector-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(30,58,95,0.45);
+  line-height: 1;
+  padding-left: 2px;
+}
+#source-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230050B3' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 9px center;
+  border: 1px solid rgba(0,80,179,0.22);
+  border-radius: 7px;
+  padding: 5px 28px 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  min-width: 190px;
+  transition: border-color .15s, box-shadow .15s;
+}
+#source-select:hover { border-color: rgba(0,80,179,0.40); }
+#source-select:focus { border-color: #0050B3; box-shadow: 0 0 0 3px rgba(0,80,179,0.10); }
+#source-select option[disabled] { color: rgba(30,58,95,0.45); font-style: italic; }
+
+/* ── Planned Source Placeholder Screens ── */
+.source-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  padding: 60px 24px;
+  text-align: center;
+}
+body[data-source="local"] #placeholder-local,
+body[data-source="other"] #placeholder-other { display: flex; }
+body[data-source="local"] #view-gallery,
+body[data-source="local"] #filter-summary,
+body[data-source="other"] #view-gallery,
+body[data-source="other"] #filter-summary { display: none !important; }
+body[data-source="local"] #bar-row2,
+body[data-source="other"] #bar-row2 { display: none !important; }
+body[data-source="local"] .search-wrap,
+body[data-source="other"] .search-wrap { visibility: hidden; }
+body[data-source="local"] #count-badge,
+body[data-source="other"] #count-badge { visibility: hidden; }
+body[data-source="local"] .bar-right .view-btn,
+body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: none; }
+.source-placeholder-icon {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, rgba(0,80,179,0.07), rgba(91,47,190,0.07));
+  border: 1.5px solid rgba(0,80,179,0.15);
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(0,80,179,0.45);
+  flex-shrink: 0;
+}
+.source-placeholder-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(91,47,190,0.70);
+  background: rgba(91,47,190,0.07);
+  border: 1px solid rgba(91,47,190,0.15);
+  border-radius: 20px;
+  padding: 4px 12px 4px 9px;
+}
+.source-placeholder-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(91,47,190,0.55);
+  flex-shrink: 0;
+}
+.source-placeholder-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.source-placeholder-body {
+  font-size: 14px;
+  color: var(--text2);
+  max-width: 400px;
+  line-height: 1.6;
+  margin: 0;
+}
+.source-placeholder-back {
+  margin-top: 8px;
+  background: none;
+  border: 1.5px solid rgba(0,80,179,0.25);
+  border-radius: 8px;
+  color: #0050B3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.source-placeholder-back:hover { background: rgba(0,80,179,0.06); border-color: rgba(0,80,179,0.45); }
+
 /* ── Search ── */
 .search-wrap { position: relative; flex: 0 1 240px; }
 .search-wrap svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; color: rgba(30,58,95,0.55); }
@@ -2412,6 +2530,15 @@ body {
       </div>
     </div>
     <div class="bar-sep"></div>
+    <div class="source-selector-wrap">
+      <span class="source-selector-label">Architecture Source</span>
+      <select id="source-select">
+        <option value="sap">SAP Architecture Center</option>
+        <option value="local">Local Architectures (planned)</option>
+        <option value="other">Other Architecture Sources (planned)</option>
+      </select>
+    </div>
+    <div class="bar-sep"></div>
     <div class="search-wrap">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input id="search" type="search" placeholder="Search architectures…" autocomplete="off">
@@ -2484,6 +2611,28 @@ body {
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <span>No architectures match your filters</span>
       </div>
+    </div>
+
+    <!-- PLANNED SOURCE: Local Architectures -->
+    <div id="placeholder-local" class="source-placeholder">
+      <div class="source-placeholder-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <span class="source-placeholder-status">Planned</span>
+      <h2 class="source-placeholder-title">Local Architectures</h2>
+      <p class="source-placeholder-body">Local architecture workspaces are planned for a future release. Return to SAP Architecture Center to explore available architectures.</p>
+      <button class="source-placeholder-back" onclick="document.getElementById('source-select').value='sap';document.getElementById('source-select').dispatchEvent(new Event('change'))">← Back to SAP Architecture Center</button>
+    </div>
+
+    <!-- PLANNED SOURCE: Other Architecture Sources -->
+    <div id="placeholder-other" class="source-placeholder">
+      <div class="source-placeholder-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <span class="source-placeholder-status">Planned</span>
+      <h2 class="source-placeholder-title">Other Architecture Sources</h2>
+      <p class="source-placeholder-body">Additional public architecture sources are planned for a future release. Return to SAP Architecture Center to explore available architectures.</p>
+      <button class="source-placeholder-back" onclick="document.getElementById('source-select').value='sap';document.getElementById('source-select').dispatchEvent(new Event('change'))">← Back to SAP Architecture Center</button>
     </div>
 
     <!-- ATLAS VIEW -->
@@ -6416,6 +6565,19 @@ function ccWatchFsViewer() {
 main().then(() => {
   if (window._atlasRestoreURL) window._atlasRestoreURL();
 });
+
+// ── Source Selector ──────────────────────────────────────────────────────────
+(function initSourceSelector() {
+  const sel = document.getElementById('source-select');
+  if (!sel) return;
+  sel.addEventListener('change', function() {
+    document.body.setAttribute('data-source', this.value);
+    // When returning to SAP source, restore view state
+    if (this.value === 'sap') {
+      document.body.removeAttribute('data-source');
+    }
+  });
+})();
 
 // ══════════════════════════════════════════════════════
 // KNOWLEDGE GRAPH — integrated module
