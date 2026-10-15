@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ATLAS | Architecture Explorer</title>
-<meta name="description" content="ATLAS is an independent community architecture explorer. Explore publicly available reference architectures and their connections.">
+<title>ATLAS | Architecture Navigator</title>
+<meta name="description" content="ATLAS Architecture Navigator — explore, compare and connect publicly available SAP reference architectures.">
 <script src="./vendor/cytoscape-3.29.2.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -165,7 +165,7 @@ body {
 
 /* ── Wordmark ── */
 .logo-wordmark {
-  display: flex; flex-direction: column; gap: 3px;
+  display: flex; flex-direction: row; align-items: center; gap: 0;
 }
 .logo-primary {
   display: block;
@@ -173,9 +173,16 @@ body {
   object-fit: contain; object-position: left center;
   flex-shrink: 0;
 }
+.logo-divider {
+  width: 1px; height: 18px;
+  background: rgba(30,58,95,0.22);
+  flex-shrink: 0;
+  margin: 0 10px;
+}
 .logo-secondary {
-  font-size: 9px; font-weight: 500; letter-spacing: .08em;
-  color: rgba(30,58,95,0.75); text-transform: uppercase; line-height: 1;
+  font-size: 13px; font-weight: 400; letter-spacing: -0.01em;
+  color: rgba(30,58,95,0.80); line-height: 1;
+  white-space: nowrap;
 }
 .logo-text { display: none; }
 
@@ -2526,7 +2533,8 @@ body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: 
 
       <div class="logo-wordmark">
         <img class="logo-primary" src="./assets/atlas_logo.png" alt="ATLAS" draggable="false">
-        <div class="logo-secondary">Architecture Explorer</div>
+        <div class="logo-divider"></div>
+        <div class="logo-secondary">Architecture Navigator</div>
       </div>
     </div>
     <div class="bar-sep"></div>
@@ -2805,7 +2813,8 @@ body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: 
       </div>
       <div class="logo-wordmark">
         <img class="logo-primary" src="./assets/atlas_logo.png" alt="ATLAS" draggable="false">
-        <div class="logo-secondary">Architecture Explorer</div>
+        <div class="logo-divider"></div>
+        <div class="logo-secondary">Architecture Navigator</div>
       </div>
     </a>
     <div id="fs-title-wrap">
@@ -2899,7 +2908,8 @@ body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: 
       </div>
       <div class="logo-wordmark">
         <img class="logo-primary" src="./assets/atlas_logo.png" alt="ATLAS" draggable="false">
-        <div class="logo-secondary">Architecture Explorer</div>
+        <div class="logo-divider"></div>
+        <div class="logo-secondary">Architecture Navigator</div>
       </div>
     </a>
     <div id="cmp-context">
@@ -2938,7 +2948,8 @@ body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: 
       </div>
       <div class="logo-wordmark">
         <img class="logo-primary" src="./assets/atlas_logo.png" alt="ATLAS" draggable="false">
-        <div class="logo-secondary">Architecture Explorer</div>
+        <div class="logo-divider"></div>
+        <div class="logo-secondary">Architecture Navigator</div>
       </div>
     </a>
     <div id="cc-header-context">
@@ -3038,7 +3049,8 @@ body[data-source="other"] .bar-right .view-btn { opacity: 0.35; pointer-events: 
       </div>
       <div class="logo-wordmark">
         <img class="logo-primary" src="./assets/atlas_logo.png" alt="ATLAS" draggable="false">
-        <div class="logo-secondary">Architecture Explorer</div>
+        <div class="logo-divider"></div>
+        <div class="logo-secondary">Architecture Navigator</div>
       </div>
     </a>
     <!-- Page context -->
